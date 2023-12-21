@@ -1,0 +1,9 @@
+{
+	"name": "pw-datafactory-cf",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "54eeae86-9ab0-43d7-8c37-b69d1c734306",
+		"tenantId": "93635a81-ffa8-4e0c-bc27-d13e8d1d5c0a"
+	}
+}
