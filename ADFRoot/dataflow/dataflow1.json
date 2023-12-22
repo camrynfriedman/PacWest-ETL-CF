@@ -12,7 +12,11 @@
 					"name": "source1"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"name": "sink1"
+				}
+			],
 			"transformations": [],
 			"scriptLines": [
 				"source(output(",
@@ -52,7 +56,46 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1"
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          id,",
+				"          {project code},",
+				"          {pq #},",
+				"          {po / so #},",
+				"          {asn/dn #},",
+				"          country,",
+				"          {managed by},",
+				"          {fulfill via},",
+				"          {vendor inco term},",
+				"          {shipment mode},",
+				"          {pq first sent to client date},",
+				"          {po sent to vendor date},",
+				"          {scheduled delivery date},",
+				"          {delivered to client date},",
+				"          {delivery recorded date},",
+				"          {product group},",
+				"          {sub classification},",
+				"          vendor,",
+				"          {item description},",
+				"          {molecule/test type},",
+				"          brand,",
+				"          dosage,",
+				"          {dosage form},",
+				"          {unit of measure (per pack)},",
+				"          {line item quantity},",
+				"          {line item value},",
+				"          {pack price},",
+				"          {unit price},",
+				"          {manufacturing site},",
+				"          {first line designation},",
+				"          {weight (kilograms)},",
+				"          {freight cost (usd)},",
+				"          {line item insurance (usd)}",
+				"     )) ~> sink1"
 			]
 		}
 	}
