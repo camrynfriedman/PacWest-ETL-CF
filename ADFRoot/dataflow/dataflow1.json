@@ -5,14 +5,54 @@
 		"typeProperties": {
 			"sources": [
 				{
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
 					"name": "source1"
 				}
 			],
 			"sinks": [],
 			"transformations": [],
 			"scriptLines": [
-				"source(allowSchemaDrift: true,",
-				"     validateSchema: false) ~> source1"
+				"source(output(",
+				"          id as string,",
+				"          {project code} as string,",
+				"          {pq #} as string,",
+				"          {po / so #} as string,",
+				"          {asn/dn #} as string,",
+				"          country as string,",
+				"          {managed by} as string,",
+				"          {fulfill via} as string,",
+				"          {vendor inco term} as string,",
+				"          {shipment mode} as string,",
+				"          {pq first sent to client date} as string,",
+				"          {po sent to vendor date} as string,",
+				"          {scheduled delivery date} as string,",
+				"          {delivered to client date} as string,",
+				"          {delivery recorded date} as string,",
+				"          {product group} as string,",
+				"          {sub classification} as string,",
+				"          vendor as string,",
+				"          {item description} as string,",
+				"          {molecule/test type} as string,",
+				"          brand as string,",
+				"          dosage as string,",
+				"          {dosage form} as string,",
+				"          {unit of measure (per pack)} as string,",
+				"          {line item quantity} as string,",
+				"          {line item value} as string,",
+				"          {pack price} as string,",
+				"          {unit price} as string,",
+				"          {manufacturing site} as string,",
+				"          {first line designation} as string,",
+				"          {weight (kilograms)} as string,",
+				"          {freight cost (usd)} as string,",
+				"          {line item insurance (usd)} as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1"
 			]
 		}
 	}

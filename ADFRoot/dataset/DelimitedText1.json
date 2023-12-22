@@ -1,0 +1,156 @@
+{
+	"name": "DelimitedText1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageCFConnection",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Supply_Chain_Shipment_Pricing_Dataset_20231221.csv",
+				"container": "etlcontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "id",
+				"type": "String"
+			},
+			{
+				"name": "project code",
+				"type": "String"
+			},
+			{
+				"name": "pq #",
+				"type": "String"
+			},
+			{
+				"name": "po / so #",
+				"type": "String"
+			},
+			{
+				"name": "asn/dn #",
+				"type": "String"
+			},
+			{
+				"name": "country",
+				"type": "String"
+			},
+			{
+				"name": "managed by",
+				"type": "String"
+			},
+			{
+				"name": "fulfill via",
+				"type": "String"
+			},
+			{
+				"name": "vendor inco term",
+				"type": "String"
+			},
+			{
+				"name": "shipment mode",
+				"type": "String"
+			},
+			{
+				"name": "pq first sent to client date",
+				"type": "String"
+			},
+			{
+				"name": "po sent to vendor date",
+				"type": "String"
+			},
+			{
+				"name": "scheduled delivery date",
+				"type": "String"
+			},
+			{
+				"name": "delivered to client date",
+				"type": "String"
+			},
+			{
+				"name": "delivery recorded date",
+				"type": "String"
+			},
+			{
+				"name": "product group",
+				"type": "String"
+			},
+			{
+				"name": "sub classification",
+				"type": "String"
+			},
+			{
+				"name": "vendor",
+				"type": "String"
+			},
+			{
+				"name": "item description",
+				"type": "String"
+			},
+			{
+				"name": "molecule/test type",
+				"type": "String"
+			},
+			{
+				"name": "brand",
+				"type": "String"
+			},
+			{
+				"name": "dosage",
+				"type": "String"
+			},
+			{
+				"name": "dosage form",
+				"type": "String"
+			},
+			{
+				"name": "unit of measure (per pack)",
+				"type": "String"
+			},
+			{
+				"name": "line item quantity",
+				"type": "String"
+			},
+			{
+				"name": "line item value",
+				"type": "String"
+			},
+			{
+				"name": "pack price",
+				"type": "String"
+			},
+			{
+				"name": "unit price",
+				"type": "String"
+			},
+			{
+				"name": "manufacturing site",
+				"type": "String"
+			},
+			{
+				"name": "first line designation",
+				"type": "String"
+			},
+			{
+				"name": "weight (kilograms)",
+				"type": "String"
+			},
+			{
+				"name": "freight cost (usd)",
+				"type": "String"
+			},
+			{
+				"name": "line item insurance (usd)",
+				"type": "String"
+			}
+		]
+	}
+}
