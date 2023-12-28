@@ -9,7 +9,8 @@
 						"referenceName": "OG_Data",
 						"type": "DatasetReference"
 					},
-					"name": "source1"
+					"name": "source1",
+					"description": "Import data from OG_Data\n"
 				}
 			],
 			"sinks": [
@@ -18,7 +19,8 @@
 						"referenceName": "Landing_Table",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "sink1",
+					"description": "Export data to Landing_Table"
 				}
 			],
 			"transformations": [],
