@@ -1,5 +1,5 @@
 {
-	"name": "DelimitedText1",
+	"name": "OG_Data",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorageCFConnection",
