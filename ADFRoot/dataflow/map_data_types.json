@@ -60,7 +60,11 @@
 				"     format: 'table') ~> source1",
 				"source1 cast(output(",
 				"          id as integer,",
-				"          project_code as string",
+				"          pq_to_client_date as date 'yyyy-MM-dd',",
+				"          po_to_vendor_date as date 'yyyy-MM-dd',",
+				"          sched_delivery_date as date 'yyyy-MM-dd',",
+				"          actual_delivery_date as date 'yyyy-MM-dd',",
+				"          delivery_recorded_date as date 'yyyy-MM-dd'",
 				"     ),",
 				"     errors: true) ~> cast1"
 			]
