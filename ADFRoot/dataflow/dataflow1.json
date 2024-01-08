@@ -1,5 +1,5 @@
 {
-	"name": "map_data_types",
+	"name": "dataflow1",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -12,12 +12,12 @@
 					"name": "LandingTable"
 				}
 			],
-			"sinks": [],
-			"transformations": [
+			"sinks": [
 				{
-					"name": "cast1"
+					"name": "StagingTable"
 				}
 			],
+			"transformations": [],
 			"scriptLines": [
 				"source(output(",
 				"          id as integer,",
@@ -58,15 +58,10 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> LandingTable",
-				"LandingTable cast(output(",
-				"          id as integer,",
-				"          pq_to_client_date as date 'yyyy-MM-dd',",
-				"          po_to_vendor_date as date 'yyyy-MM-dd',",
-				"          sched_delivery_date as date 'yyyy-MM-dd',",
-				"          actual_delivery_date as date 'yyyy-MM-dd',",
-				"          delivery_recorded_date as date 'yyyy-MM-dd'",
-				"     ),",
-				"     errors: true) ~> cast1"
+				"LandingTable sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> StagingTable"
 			]
 		}
 	}
