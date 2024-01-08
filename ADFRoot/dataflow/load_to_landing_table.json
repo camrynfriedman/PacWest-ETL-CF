@@ -9,7 +9,7 @@
 						"referenceName": "OG_Data",
 						"type": "DatasetReference"
 					},
-					"name": "source1",
+					"name": "OGData",
 					"description": "Import data from OG_Data\n"
 				}
 			],
@@ -19,7 +19,7 @@
 						"referenceName": "Landing_Table",
 						"type": "DatasetReference"
 					},
-					"name": "sink1",
+					"name": "LandingTable",
 					"description": "Export data to Landing_Table"
 				}
 			],
@@ -75,7 +75,7 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> source1",
+				"     ignoreNoFilesFound: false) ~> OGData",
 				"castActualDeliveryDate cast(output(",
 				"          {scheduled delivery date} as date 'd-MMM-yy'",
 				"     ),",
@@ -84,7 +84,7 @@
 				"          {delivered to client date} as date 'd-MMM-yy'",
 				"     ),",
 				"     errors: true) ~> castActualDeliveryDate",
-				"source1 cast(output(",
+				"OGData cast(output(",
 				"          {delivery recorded date} as date 'd-MMM-yy'",
 				"     ),",
 				"     errors: true) ~> castDeliveryRecordedDate",
@@ -167,7 +167,7 @@
 				"          weight_kg = {weight (kilograms)},",
 				"          freight_cost = {freight cost (usd)},",
 				"          line_item_insurance = {line item insurance (usd)}",
-				"     )) ~> sink1"
+				"     )) ~> LandingTable"
 			]
 		}
 	}
