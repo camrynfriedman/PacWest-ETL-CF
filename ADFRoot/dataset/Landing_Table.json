@@ -51,13 +51,11 @@
 			},
 			{
 				"name": "pq_to_client_date",
-				"type": "datetime2",
-				"scale": 7
+				"type": "nvarchar"
 			},
 			{
 				"name": "po_to_vendor_date",
-				"type": "datetime2",
-				"scale": 7
+				"type": "nvarchar"
 			},
 			{
 				"name": "sched_delivery_date",
