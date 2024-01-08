@@ -1,0 +1,159 @@
+{
+	"name": "Staging_Table",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "project_code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "pq_num",
+				"type": "nvarchar"
+			},
+			{
+				"name": "po_so_num",
+				"type": "nvarchar"
+			},
+			{
+				"name": "asn_dn_num",
+				"type": "nvarchar"
+			},
+			{
+				"name": "country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "managed_by",
+				"type": "nvarchar"
+			},
+			{
+				"name": "fulfill_via",
+				"type": "nvarchar"
+			},
+			{
+				"name": "vendor_inco_term",
+				"type": "nvarchar"
+			},
+			{
+				"name": "shipment_mode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "pq_to_client_date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "po_to_vendor_date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sched_delivery_date",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "actual_delivery_date",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "delivery_recorded_date",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "product_group",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sub_classification",
+				"type": "nvarchar"
+			},
+			{
+				"name": "vendor",
+				"type": "nvarchar"
+			},
+			{
+				"name": "item_description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "molecule_test_type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "brand",
+				"type": "nvarchar"
+			},
+			{
+				"name": "dosage",
+				"type": "nvarchar"
+			},
+			{
+				"name": "dosage_form",
+				"type": "nvarchar"
+			},
+			{
+				"name": "unit_of_measure",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "line_item_qty",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "line_item_val",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "pack_price",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "unit_price",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "manufacturing_site",
+				"type": "nvarchar"
+			},
+			{
+				"name": "first_line_designation",
+				"type": "bit"
+			},
+			{
+				"name": "weight_kg",
+				"type": "nvarchar"
+			},
+			{
+				"name": "freight_cost",
+				"type": "nvarchar"
+			},
+			{
+				"name": "line_item_insurance",
+				"type": "float",
+				"precision": 15
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "SHIPMENTS_STAGE"
+		}
+	}
+}
