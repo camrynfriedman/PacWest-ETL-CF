@@ -1,0 +1,68 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"folder": {
+			"name": "staging"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Staging_Table",
+						"type": "DatasetReference"
+					},
+					"name": "StagingTable"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          id as integer,",
+				"          project_code as string,",
+				"          pq_num as string,",
+				"          po_so_num as string,",
+				"          asn_dn_num as string,",
+				"          country as string,",
+				"          managed_by as string,",
+				"          fulfill_via as string,",
+				"          vendor_inco_term as string,",
+				"          shipment_mode as string,",
+				"          pq_to_client_date as string,",
+				"          po_to_vendor_date as string,",
+				"          sched_delivery_date as timestamp,",
+				"          actual_delivery_date as timestamp,",
+				"          delivery_recorded_date as timestamp,",
+				"          product_group as string,",
+				"          sub_classification as string,",
+				"          vendor as string,",
+				"          item_description as string,",
+				"          molecule_test_type as string,",
+				"          brand as string,",
+				"          dosage as string,",
+				"          dosage_form as string,",
+				"          unit_of_measure as integer,",
+				"          line_item_qty as integer,",
+				"          line_item_val as double,",
+				"          pack_price as double,",
+				"          unit_price as double,",
+				"          manufacturing_site as string,",
+				"          first_line_designation as boolean,",
+				"          weight_kg as string,",
+				"          freight_cost as string,",
+				"          line_item_insurance as double",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> StagingTable",
+				"StagingTable derive(column1 = ERROR_FUNCTION('')) ~> derivedColumn1"
+			]
+		}
+	}
+}

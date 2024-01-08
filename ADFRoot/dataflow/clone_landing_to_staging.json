@@ -1,6 +1,9 @@
 {
 	"name": "clone_landing_to_staging",
 	"properties": {
+		"folder": {
+			"name": "staging"
+		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
