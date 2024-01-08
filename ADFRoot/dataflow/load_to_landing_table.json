@@ -23,7 +23,12 @@
 					"description": "Export data to Landing_Table"
 				}
 			],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "cast1",
+					"description": "Casts string date to datetime"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          id as integer,",
@@ -63,7 +68,11 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> source1",
-				"source1 sink(allowSchemaDrift: true,",
+				"source1 cast(output(",
+				"          {pq first sent to client date} as date 'd-MMM-yy'",
+				"     ),",
+				"     errors: true) ~> cast1",
+				"cast1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          id as integer,",
@@ -109,7 +118,7 @@
 				"     skipDuplicateMapOutputs: true,",
 				"     errorHandlingOption: 'stopOnFirstError',",
 				"     mapColumn(",
-				"          id,",
+				"          id = {pq first sent to client date},",
 				"          project_code = {project code},",
 				"          pq_num = {pq #},",
 				"          po_so_num = {po / so #},",
