@@ -61,7 +61,7 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> StagingTable",
-				"StagingTable derive(column1 = ERROR_FUNCTION('')) ~> derivedColumn1"
+				"StagingTable derive(pq_to_client_date_reason = iif(pq_to_client_date==\"Pre-PQ Process\" || pq_to_client_date==\"Date Not Captured\", 1+1, 2)) ~> derivedColumn1"
 			]
 		}
 	}
