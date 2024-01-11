@@ -25,7 +25,17 @@
 					"description": "Export data to Staging_Table"
 				}
 			],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "cast1"
+				},
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "split1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          id as integer,",
@@ -66,7 +76,14 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> LandingTable",
-				"LandingTable sink(allowSchemaDrift: true,",
+				"derivedColumn1 cast(output(",
+				"          id as integer",
+				"     ),",
+				"     errors: true) ~> cast1",
+				"split1 derive(date2 = ERROR_FUNCTION('')) ~> derivedColumn1",
+				"LandingTable split(ERROR_FUNCTION(''),",
+				"     disjoint: false) ~> split1@(, )",
+				"cast1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          id as integer,",
